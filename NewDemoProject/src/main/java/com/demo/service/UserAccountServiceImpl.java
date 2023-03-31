@@ -46,7 +46,7 @@ public class UserAccountServiceImpl implements UserAccountService {
 	public Interest createInterest(Interest interest) {
 		// TODO Auto-generated method stub
 		
-		UserAccount userAccount = accountRepo.findById(interest.getUserAccountId()).get();
+		UserAccount userAccount = accountRepo.findById(interest.getUserAccount().getId()).orElse(null);
  		interest.setUserAccount(userAccount);
  		return interestRepo.save(interest);
 	}

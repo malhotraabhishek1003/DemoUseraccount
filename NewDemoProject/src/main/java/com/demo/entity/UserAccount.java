@@ -26,7 +26,7 @@ public class UserAccount  {
 	private String city;
 	private String country;
 	
-	@OneToOne(mappedBy = "userAccount")
-	private Interest interest;
-
+//	@OneToOne(mappedBy = "user_account")
+//	private Interest interest;
+	
 }

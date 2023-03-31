@@ -25,10 +25,10 @@ public class Interest {
 	private String hobbies;
 	private String profileUrl;
 	private String about;
-	private int userAccountId;
+//	private int userAccountId;
 	
 	@OneToOne
-	@JoinColumn(name = "user_id")
-	@JsonIgnore
+	@JoinColumn(name = "user_id",referencedColumnName = "id")
+//	@JsonIgnore
 	private UserAccount userAccount;
 }
