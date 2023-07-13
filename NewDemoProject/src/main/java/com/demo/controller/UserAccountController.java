@@ -1,10 +1,15 @@
 package com.demo.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -42,5 +47,23 @@ public class UserAccountController {
  		return accountService.createInterest(interest);
 
  	}
+     
+     @GetMapping("/users/get/{id}")
+     public Optional<UserAccount> fetchUserById(@PathVariable int id)
+     {
+         return accountService.getUsersById(id);
+     }
+     
+     @PutMapping("/users/update/{id}")
+     public ResponseEntity<UserAccount> updateUserAccount(@PathVariable int id)
+     {
+         return accountService.updateUserAccount(id);
+     }
+     
+     @DeleteMapping("/users/delete/{id}")
+     public ResponseEntity<String> deleteUserAccount(@PathVariable int id)
+     {
+         return accountService.deleteUserAccount(id);
+     }
   
 }
